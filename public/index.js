@@ -40,8 +40,8 @@ class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('ship', 'http://labs.phaser.io/assets/sprites/x2kship.png');
-    // this.load.image('warpgate', 'assets/warpgate.png');
+    this.load.image('ship', '/assets/x2kship.png');
+    //this.load.image('warpgate', 'assets/warpgate.png');
     // this.load.image('dust1', 'assets/smoke1.png');
     // this.load.image('dust2', 'assets/smoke2.png');
     // this.load.image('dust3', 'assets/smoke3.png');
@@ -104,7 +104,7 @@ class MainScene extends Phaser.Scene {
   }
 
   spawnLocalShip() {
-    let _player = createShip(this, this.socket.id, true);
+    //let _player = createShip(this, this.socket.id, true);
     // //this.camera.follow(_player);
     // this.cameras.main.startFollow(_player);
   }
@@ -138,9 +138,9 @@ window.addEventListener('load', () => {
   game = new Phaser.Game(config);
 });
 
-function createShip(game, id, isLocal = false) {
+function createShip(game, id = 'NO TEXT SPECIFIED', isLocal = false) {
   let ship = game.matter.add.image(400, 300, 'ship').setDepth(SHIP_DEPTH);
-  ship.thrusting = false;
+  //ship.thrusting = false;
 
   // if (isLocal) {
   //   ship.setFrictionAir(0.05);
@@ -151,7 +151,7 @@ function createShip(game, id, isLocal = false) {
   //   playerShip = ship;
   // }
 
-  // let text = game.add.text(0, 0, id, { font: '"Press Start 2P"' });
+  //let text = game.add.text(0, 0, id, { font: '"Press Start 2P"' });
 
   // // Collision Handling
   // ship.setCollisionCategory(CATEGORY_PLAYER);
@@ -201,7 +201,7 @@ function createShip(game, id, isLocal = false) {
   // };
 
   // allShips[id] = { ship, text };
+  alert('LOCAL SPAWNED');
 
   return ship;
-  //_text.anchor.set(0.5)
 }
